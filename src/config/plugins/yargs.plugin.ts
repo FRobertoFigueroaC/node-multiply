@@ -20,11 +20,22 @@ export const yarg = yargs(hideBin(process.argv))
     default: false,
     describe: 'Show multiplication Table'
   })
-  check((argv, options) => {
+  .option('n', {
+    alias: 'name',
+    type: 'string',
+    default: 'table',
+    describe: 'File name'
+  })
+  .option('d', {
+    alias: 'destination',
+    type: 'string',
+    default: './outputs',
+    describe: 'File destination'
+  })
+  .check((argv, options) => {
 
-    console.log(argv.b, typeof argv.b)
-
-    if (argv.b < 1) throw new Error("base must be a number");
+    if (argv.b < 1) throw new Error("base must be a number greater than cero");
+    if (argv.l < 1) throw new Error("base must be a number greater than cero");
     
     return true
   })

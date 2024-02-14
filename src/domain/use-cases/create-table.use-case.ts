@@ -18,8 +18,8 @@ export class CreateTable implements CreateTableUseCase {
   execute({base, limit = 10}: CreateTableOptions): string {
     let result = '';
     for (let index = 1; index <= limit; index++) {
-      const item = `${base} x ${index} = ${base * index} \n` 
-      result += item;
+      result += `${base} x ${index} = ${base * index}`;
+      if(index < limit) result += '\n';
     }
     return result;
   }

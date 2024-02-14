@@ -35,7 +35,7 @@ export const yarg = yargs(hideBin(process.argv))
   .check((argv, options) => {
 
     if (argv.b < 1) throw new Error("base must be a number greater than cero");
-    if (argv.l < 1) throw new Error("base must be a number greater than cero");
+    if (argv.l < 1) throw new Error("limit must be a number greater than cero");
     
     return true
   })

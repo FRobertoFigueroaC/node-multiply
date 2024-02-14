@@ -23,14 +23,13 @@ export class SaveFile implements SaveFileUseCase {
     fileDestination = 'outputs',
     fileName = 'table.txt',
   }: SaveFileOptions): boolean {
-    console.log(fileName, fileDestination);
-
     try {
       fs.mkdirSync(fileDestination, {recursive:true})
       fs.writeFileSync(`${fileDestination}/${fileName}`, fileContent)
       return true;
     } catch (error) {
-      console.error(error)
+      // TODO : Add winston logger here 
+      // console.error(error)
       return false;
     }
   }
